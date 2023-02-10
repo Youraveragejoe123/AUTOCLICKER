@@ -8,10 +8,10 @@ function addClicker(e) {
   	if(!e.isTrusted) {
       		return;
       	}
-  	if(e.target.classList.contains("auto-clicker-target")) {
-      		e.target.classList.remove("auto-clicker-target");
+  	if(e.target.classList.contains("auto-clicker-target-cursor")) {
+      		e.target.classList.remove("auto-clicker-target-cursor");
       	} else {
-          		e.target.classList.add("auto-clicker-target");
+          		e.target.classList.add("auto-clicker-target-cursor");
           	}
   	document.body.removeChild(autoClickerStyleElement);
   	document.body.removeEventListener("click", addClicker);
@@ -20,7 +20,7 @@ function addClicker(e) {
   	autoClick(e.target);
   }
 function autoClick(element) {
-  	if(element.classList.contains("auto-clicker-target")) {
+  	if(element.classList.contains("auto-clicker-target-cursor")) {
       		element.click();
       		setTimeout(function(){ autoClick(element); }, DELAY);
       	}
